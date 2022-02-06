@@ -2,12 +2,43 @@
   position: absolute;
   bottom: 210px;
   right: 0;
-  height: 100px;
-  width: 300px;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 251px;
+  height: 357px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  background-color: #86d3f4;
   pointer-events: all;
-  /* transition: right .2s linear; */
   transition-property: right;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
+}
+
+.popupAlert_title {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.popupAlert_QRCode {
+  margin-bottom: 20px;
+}
+.popupAlert_subTitle {
+  font-size: 14px;
+  line-height: 16px;
+  width: 126px;
+  height: 32px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.popupAlert_accept {
+  width: 156px;
+  height: 52px;
+  color: #86d3f4;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  background-color: #000;
+  cursor: pointer;
 }
