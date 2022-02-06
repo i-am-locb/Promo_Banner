@@ -1,0 +1,12 @@
+.promoNumber {
+  position: absolute;
+  top: 0;
+  left: -400px;
+  height: 100%;
+  width: 400px;
+  pointer-events: all;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition-property: left;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}

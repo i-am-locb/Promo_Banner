@@ -1,0 +1,13 @@
+.popupAlert {
+  position: absolute;
+  bottom: 210px;
+  right: 0;
+  height: 100px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+  /* transition: right .2s linear; */
+  transition-property: right;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}

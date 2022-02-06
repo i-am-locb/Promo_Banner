@@ -1,0 +1,11 @@
+.popupQR {
+  position: absolute;
+  bottom: 100px;
+  right: -300px;
+  height: 100px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition-property: right;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
