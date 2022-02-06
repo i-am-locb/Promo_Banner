@@ -11,7 +11,7 @@ export const PromoExit: React.FC<Props> = ({isOpen, toggleIsOpen}) => {
     <button
       onClick={() => toggleIsOpen(false)}
       className={styles.promoExitButton}
-      style={isOpen ? { right: 70 } : { right: -140 }}
+      style={isOpen ? { right: 20 } : { right: -140 }}
     ></button>
   );
 };
