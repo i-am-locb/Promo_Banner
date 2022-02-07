@@ -6,7 +6,7 @@ import { PromoNumber } from "./PromoNumber/PromoNumber";
 import { PromoQR } from "./PromoQR/PromoQR";
 
 export function PromoBanner() {
-  const [isOpen, toggleIsOpen] = useState(true);
+  const [isOpen, toggleIsOpen] = useState(false);
 
   return (
     <div className={styles.promoContainer}>
