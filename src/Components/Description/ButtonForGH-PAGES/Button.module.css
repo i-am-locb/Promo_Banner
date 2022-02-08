@@ -1,0 +1,25 @@
+.wrapper{
+    margin-top: 20px;
+    width: 100%;
+    min-height: 50px;
+}
+
+.text {
+    color: rgb(150, 199, 199);
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    background-color: #fff;
+}
+
+.button:hover {
+    background-color: #000;
+    color:rgb(150, 199, 199);
+    cursor: pointer;
+    border: 1px solid rgb(150, 199, 199);
+}
