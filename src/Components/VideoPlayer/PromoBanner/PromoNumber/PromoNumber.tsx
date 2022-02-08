@@ -17,7 +17,6 @@ export const PromoNumber: React.FC<Props> = ({ isOpen }) => {
   const [isFullNumber, setIsFullNumber] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   let isValid = useSelector((state: IRootState) => state.Number.isValid);
-  console.log(isValid);
 
   return (
     <>
