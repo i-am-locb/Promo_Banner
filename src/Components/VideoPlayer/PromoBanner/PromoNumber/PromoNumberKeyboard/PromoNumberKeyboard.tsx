@@ -12,21 +12,89 @@ type Props = {
   setIsButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const PromoNumberKeyboard: React.FC<Props> = ({setIsFullNumber, setIsButtonClicked}) => {
+export const PromoNumberKeyboard: React.FC<Props> = ({
+  setIsFullNumber,
+  setIsButtonClicked,
+}) => {
   let number = useSelector((state: IRootState) => state.Number.number);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(number.length == 10) {
-      setIsFullNumber(true)
+    if (number.length == 10) {
+      setIsFullNumber(true);
     } else {
-      setIsFullNumber(false)
+      setIsFullNumber(false);
     }
-  },[number]);
+  }, [number]);
 
-  const onClick = (e: any) => {
+  useEffect(() => {
+    const onKeypress = (e: any) => {
+      console.log(e.keyCode);
+      switch (e.keyCode) {
+        case 48: {
+          onClick(0);
+          break;
+        }
+        case 49: {
+          onClick(1);
+          break;
+        }
+        case 50: {
+          onClick(2);
+          break;
+        }
+        case 51: {
+          onClick(3);
+          break;
+        }
+        case 52: {
+          onClick(4);
+          break;
+        }
+        case 53: {
+          onClick(5);
+          break;
+        }
+        case 54: {
+          onClick(6);
+          break;
+        }
+        case 55: {
+          onClick(7);
+          break;
+        }
+        case 56: {
+          onClick(8);
+          break;
+        }
+        case 57: {
+          onClick(9);
+          break;
+        }
+      }
+    };
+    const onKeyDown = (e:any) => {
+      console.log(e.keyCode)
+      switch (e.keyCode) {
+        case 8: {
+          remove()
+          setIsButtonClicked(false);
+          break;
+        }
+      }
+    }
+    document.addEventListener("keypress", onKeypress);
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keypress", onKeypress);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [number]);
+
+  const onClick = (num: number) => {
+    // debugger
     if (number.length < 10) {
-      let num: number = Number(e.target.innerText);
       dispatch(setPhoneNumber(num));
     } else {
       alert("Введено максимальное кол-во символов");
@@ -39,74 +107,90 @@ export const PromoNumberKeyboard: React.FC<Props> = ({setIsFullNumber, setIsButt
   return (
     <div className={styles.promoNumber_Keyboard}>
       <div
+      ref={(element) => { if (element) element.focus(); }}
         className={styles.promoNumber_Keyboard__one}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(1)}
+        tabIndex={1}
       >
         1
       </div>
       <div
+      ref={(element) => { if (element) element.focus(); }}
         className={styles.promoNumber_Keyboard__two}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(2)}
+        tabIndex={2}
       >
         2
       </div>
       <div
+      ref={(element) => { if (element) element.focus(); }}
         className={styles.promoNumber_Keyboard__three}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(3)}
+        tabIndex={3}
       >
         3
       </div>
       <div
         className={styles.promoNumber_Keyboard__four}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(4)}
+        tabIndex={4}
       >
         4
       </div>
       <div
         className={styles.promoNumber_Keyboard__five}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(5)}
+        tabIndex={5}
       >
         5
       </div>
       <div
         className={styles.promoNumber_Keyboard__six}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(6)}
+        tabIndex={6}
       >
         6
       </div>
       <div
         className={styles.promoNumber_Keyboard__seven}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(7)}
+        tabIndex={7}
       >
         7
       </div>
       <div
         className={styles.promoNumber_Keyboard__eight}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(8)}
+        tabIndex={8}
       >
         8
       </div>
       <div
         className={styles.promoNumber_Keyboard__nine}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(9)}
+        tabIndex={9}
       >
         9
       </div>
       <div
         className={styles.promoNumber_Keyboard__zero}
-        onClick={(e) => onClick(e)}
+        onClick={() => onClick(0)}
+        tabIndex={10}
       >
         0
       </div>
       <div
         className={styles.promoNumber_Keyboard__backspace}
         onClick={() => {
-          remove()
-          setIsButtonClicked(false)
+          remove();
+          setIsButtonClicked(false);
         }}
+        tabIndex={11}
       >
         СТЕРЕТЬ
       </div>
     </div>
   );
 };
+
+{/* <button ref={(element) => { if (element) element.focus(); }} type="text" onClick={e => alert('button clicked')}>Button sample</button> */}

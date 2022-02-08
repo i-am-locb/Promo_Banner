@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validate } from "../../../../../Redux/Reducers/PhoneNumber/PhoneNumber_reducer";
 import { IRootState } from "../../../../../Redux/Store";
@@ -20,6 +21,24 @@ export const PromoNumberAcceptButton: React.FC<Props> = ({
   const accept = () => {
     dispatch(validate(number.join("")));
   };
+
+  useEffect(() => {
+    const onKeyDown = (e: any) => {
+      console.log(e.keyCode);
+      switch (e.keyCode) {
+        case 13: {
+          accept()
+        setIsButtonClicked(true)
+          break;
+        }
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
 
   return (
     <button

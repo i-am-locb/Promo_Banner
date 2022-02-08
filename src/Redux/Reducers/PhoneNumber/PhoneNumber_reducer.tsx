@@ -60,7 +60,6 @@ export const deleteNum = () => ({ type: DELETE_NUM });
 
 export const validate = (number: string) => (dispatch:any) => {
   validateAPI.validateNumber(number).then((response) => {
-    console.log(response)
     if (response.valid) {
       dispatch(valid())
     }else{

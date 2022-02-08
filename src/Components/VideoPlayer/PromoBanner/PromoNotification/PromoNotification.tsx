@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../../Redux/Store";
 import styles from "./PromoNotification.module.css";
@@ -17,6 +17,24 @@ export const PromoNotification: React.FC<Props> = ({
   setShowAlert,
 }) => {
   const QRCode = useSelector((state: IRootState) => state.QRCode.QRCodeIMG);
+
+  useEffect(() => {
+    const onKeyDown = (e: any) => {
+      console.log(e.keyCode);
+      switch (e.keyCode) {
+        case 13: {
+          toggleIsOpen(true)
+          setShowAlert(false)
+          break;
+        }
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <div

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../../../Redux/Store";
 import styles from "./PromoNumberCheckbox.module.css";
@@ -12,10 +13,6 @@ export const PromoNumberCheckbox: React.FC<Props> = ({
   isButtonClicked,
 }) => {
   let isValid = useSelector((state: IRootState) => state.Number.isValid);
-  console.log(isValid);
-
-  if (!isValid && isButtonClicked) {
-  }
 
   return (
     <div>
@@ -34,7 +31,7 @@ export const PromoNumberCheckbox: React.FC<Props> = ({
         style={
           !isValid && isButtonClicked
             ? { display: "none" }
-            : { display: "block" }
+            : { display: "flex" }
         }
       >
         <input

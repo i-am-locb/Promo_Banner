@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./PromoExit.module.css";
 
 type Props = {
@@ -12,6 +12,24 @@ export const PromoExit: React.FC<Props> = ({
   toggleIsOpen,
   setShowAlert,
 }) => {
+  useEffect(() => {
+    const onKeyDown = (e: any) => {
+      console.log(e.keyCode);
+      switch (e.keyCode) {
+        case 27: {
+          toggleIsOpen(false);
+          setShowAlert(true);
+          break;
+        }
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <button
       onClick={() => {
