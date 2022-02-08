@@ -5,19 +5,23 @@ import styles from "./PromoNotification.module.css";
 
 type Props = {
   isOpen: boolean;
-  toggleIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  showAlert: boolean;
+  toggleIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const PromoNotification: React.FC<Props> = ({
   isOpen,
+  showAlert,
   toggleIsOpen,
+  setShowAlert,
 }) => {
   const QRCode = useSelector((state: IRootState) => state.QRCode.QRCodeIMG);
 
   return (
     <div
       className={styles.popupAlert}
-      style={isOpen ? { right: -251 } : { right: 0 }}
+      style={!showAlert ? { right: -251 } : { right: 0 }}
     >
       <h1 className={styles.popupAlert_title}>
         ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША!
@@ -28,7 +32,10 @@ export const PromoNotification: React.FC<Props> = ({
         Сканируйте QR-код или нажмите ОК
       </h3>
       <button
-        onClick={() => toggleIsOpen(true)}
+        onClick={() => {
+          toggleIsOpen(true)
+          setShowAlert(false)
+        }}
         className={styles.popupAlert_accept}
       >
         OK

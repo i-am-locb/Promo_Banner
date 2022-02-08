@@ -1,0 +1,74 @@
+.promoNumber_Keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine"
+    "backspace backspace zero";
+  margin-bottom: 20px;
+  position: relative;
+  left: -5px;
+}
+
+.promoNumber_Keyboard div {
+  width: 88px;
+  height: 52px;
+  border: 2px solid black;
+  margin: 5px;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.promoNumber_Keyboard div:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.promoNumber_Keyboard__one {
+  grid-area: one;
+}
+
+.promoNumber_Keyboard__two {
+  grid-area: two;
+}
+
+.promoNumber_Keyboard__three {
+  grid-area: three;
+}
+
+.promoNumber_Keyboard__four {
+  grid-area: four;
+}
+
+.promoNumber_Keyboard__five {
+  grid-area: five;
+}
+
+.promoNumber_Keyboard__six {
+  grid-area: six;
+}
+
+.promoNumber_Keyboard__seven {
+  grid-area: seven;
+}
+
+.promoNumber_Keyboard__eight {
+  grid-area: eight;
+}
+
+.promoNumber_Keyboard__nine {
+  grid-area: nine;
+}
+
+.promoNumber_Keyboard__zero {
+  grid-area: zero;
+}
+
+.promoNumber_Keyboard__backspace {
+  grid-area: backspace;
+  min-width: 186px;
+}

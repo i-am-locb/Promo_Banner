@@ -1,0 +1,48 @@
+.promoNumber_AcceptDataProtection {
+  width: 284px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.promoNumber_AcceptDataProtection__checkbox {
+  display: none;
+}
+
+.promoNumber_AcceptDataProtection__fake {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  margin-left: 10px;
+  position: relative;
+}
+
+.promoNumber_AcceptDataProtection__fake::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 45%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 14px;
+  border-right: 4px solid black;
+  border-top: 4px solid black;
+  transform: rotate(135deg);
+  opacity: 0;
+}
+
+.promoNumber_AcceptDataProtection__checkbox:checked
+  + .promoNumber_AcceptDataProtection__fake::before {
+  opacity: 1;
+}
+.promoNumber_AcceptDataProtection__text {
+  display: inline-block;
+  width: 214px;
+  line-height: 16px;
+  color: #565656;
+  text-align: left;
+  margin-left: 20px;
+}

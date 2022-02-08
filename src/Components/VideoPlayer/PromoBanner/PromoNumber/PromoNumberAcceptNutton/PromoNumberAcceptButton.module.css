@@ -1,0 +1,21 @@
+.promoNumber_AcceptButtonDisabled {
+  width: 284px;
+  height: 52px;
+  background-color: #86d3f4;
+  border: 2px solid #949494;
+  color: #949494;
+}
+
+.promoNumber_AcceptButtonAccepted {
+  width: 284px;
+  height: 52px;
+  background-color: #86d3f4;
+  border: 2px solid #000;
+  color: #000;
+}
+
+.promoNumber_AcceptButtonAccepted:hover {
+  background-color: #000;
+  border: 2px solid #000;
+  color: #fff;
+}

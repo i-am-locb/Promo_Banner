@@ -1,28 +1,35 @@
 import { type } from "os";
 import YouTube from "react-youtube";
+import ReactPlayer from "react-player/youtube";
 
-export function Video() {
+type Props = {
+  isOpen: boolean;
+  showAlert: boolean;
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-  const onPlayerReady = (event:any) => {
-    console.log(event.target)
-  }
-  
+export const Video: React.FC<Props> = ({
+  isOpen,
+  showAlert,
+  setShowAlert,
+}) => {
+  const onPlay = () => {
+    if (!showAlert) {
+      setTimeout(() => {
+        setShowAlert(true);
+      }, 5000);
+    }
+  };
   return (
     <div>
-      <YouTube
-        videoId="M7FIvfx5J10"
-        opts={{
-          height: "720px",
-          width: "1280px",
-          playerVars: {
-            autoplay: 0,  //автовоспроизведение
-            iv_load_policy: 3, //отключение аннотаций
-            modestbranding: 1, //убрать кнопку YouTube
-            showinfo: 0,
-          },
-        }}
-        onReady={onPlayerReady}
+      <ReactPlayer
+        url="https://www.youtube.com/watch?v=M7FIvfx5J10"
+        height="720px"
+        width="1280px"
+        playing={!isOpen}
+        controls={true}
+        onPlay={onPlay}
       />
     </div>
   );
-}
+};

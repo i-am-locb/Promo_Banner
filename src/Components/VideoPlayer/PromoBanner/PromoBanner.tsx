@@ -5,13 +5,19 @@ import { PromoNotification } from "./PromoNotification/PromoNotification";
 import { PromoNumber } from "./PromoNumber/PromoNumber";
 import { PromoQR } from "./PromoQR/PromoQR";
 
-export function PromoBanner() {
-  const [isOpen, toggleIsOpen] = useState(false);
+type Props = {
+  isOpen: boolean;
+  showAlert: boolean;
+  toggleIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const PromoBanner: React.FC<Props> = ({isOpen, showAlert,toggleIsOpen, setShowAlert}) => {
 
   return (
-    <div className={styles.promoContainer}>
-      <PromoNotification isOpen={isOpen} toggleIsOpen={toggleIsOpen}/>
-      <PromoExit isOpen={isOpen} toggleIsOpen={toggleIsOpen}/>
+    <div className={!isOpen? styles.promoContainerOpened : styles.promoContainerClosed}>
+      <PromoNotification isOpen={isOpen} showAlert={showAlert} toggleIsOpen={toggleIsOpen} setShowAlert={setShowAlert}/>
+      <PromoExit isOpen={isOpen} toggleIsOpen={toggleIsOpen} setShowAlert={setShowAlert}/>
       <PromoNumber isOpen={isOpen} />
       <PromoQR isOpen={isOpen} />
     </div>
