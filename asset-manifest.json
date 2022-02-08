@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Promo_Banner/static/css/main.1ca00ff9.css",
+    "main.js": "/Promo_Banner/static/js/main.1bb6db12.js",
+    "static/js/787.1f763ac6.chunk.js": "/Promo_Banner/static/js/787.1f763ac6.chunk.js",
+    "static/media/img2.jpg": "/Promo_Banner/static/media/img2.67176957677aa1263969.jpg",
+    "static/media/img3.jpg": "/Promo_Banner/static/media/img3.8f3e89b948d0d77bf74b.jpg",
+    "static/media/img4.jpg": "/Promo_Banner/static/media/img4.34b266189fa1e21a678a.jpg",
+    "static/media/img1.jpg": "/Promo_Banner/static/media/img1.e94f29e6ae0414a89fb2.jpg",
+    "static/media/img5.jpg": "/Promo_Banner/static/media/img5.487dd5ba9a83d6e903d9.jpg",
+    "static/media/img6.jpg": "/Promo_Banner/static/media/img6.b42b9d0cddfb935b023b.jpg",
+    "index.html": "/Promo_Banner/index.html",
+    "main.1ca00ff9.css.map": "/Promo_Banner/static/css/main.1ca00ff9.css.map",
+    "main.1bb6db12.js.map": "/Promo_Banner/static/js/main.1bb6db12.js.map",
+    "787.1f763ac6.chunk.js.map": "/Promo_Banner/static/js/787.1f763ac6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ca00ff9.css",
+    "static/js/main.1bb6db12.js"
+  ]
+}
