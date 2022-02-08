@@ -14,7 +14,6 @@ export const PromoExit: React.FC<Props> = ({
 }) => {
   useEffect(() => {
     const onKeyDown = (e: any) => {
-      console.log(e.keyCode);
       switch (e.keyCode) {
         case 27: {
           toggleIsOpen(false);

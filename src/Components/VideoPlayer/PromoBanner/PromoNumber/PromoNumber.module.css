@@ -9,7 +9,7 @@
   padding: 72px 48px;
   transition-property: left;
   transition-duration: 0.5s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-out ease-in;
 }
 .promoNumber_Title {
   font-size: 26px;
@@ -25,3 +25,4 @@
   line-height: 16px;
   margin-bottom: 33px;
 }
+

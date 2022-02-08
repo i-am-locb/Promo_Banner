@@ -1,0 +1,21 @@
+
+.promoFinal {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #86d3f4;
+  
+    transition-property: width, height;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+  }
+  
+  .promoFinal_Title {
+    width: 284px;
+    height: 32px;
+    margin: 10px auto;
+    margin-bottom: 20px;
+  }

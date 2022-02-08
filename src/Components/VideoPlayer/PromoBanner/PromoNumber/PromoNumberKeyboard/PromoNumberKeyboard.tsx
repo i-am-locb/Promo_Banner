@@ -29,7 +29,6 @@ export const PromoNumberKeyboard: React.FC<Props> = ({
 
   useEffect(() => {
     const onKeypress = (e: any) => {
-      console.log(e.keyCode);
       switch (e.keyCode) {
         case 48: {
           onClick(0);
@@ -74,7 +73,6 @@ export const PromoNumberKeyboard: React.FC<Props> = ({
       }
     };
     const onKeyDown = (e:any) => {
-      console.log(e.keyCode)
       switch (e.keyCode) {
         case 8: {
           remove()

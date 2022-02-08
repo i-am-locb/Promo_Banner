@@ -24,7 +24,6 @@ export const PromoNumberAcceptButton: React.FC<Props> = ({
 
   useEffect(() => {
     const onKeyDown = (e: any) => {
-      console.log(e.keyCode);
       switch (e.keyCode) {
         case 13: {
           accept()
@@ -38,7 +37,7 @@ export const PromoNumberAcceptButton: React.FC<Props> = ({
     return () => {
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, []);
+  }, [number]);
 
   return (
     <button
