@@ -9,9 +9,10 @@ import styles from "./PromoNumberKeyboard.module.css";
 
 type Props = {
   setIsFullNumber: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const PromoNumberKeyboard: React.FC<Props> = ({setIsFullNumber}) => {
+export const PromoNumberKeyboard: React.FC<Props> = ({setIsFullNumber, setIsButtonClicked}) => {
   let number = useSelector((state: IRootState) => state.Number.number);
   const dispatch = useDispatch();
 
@@ -99,7 +100,10 @@ export const PromoNumberKeyboard: React.FC<Props> = ({setIsFullNumber}) => {
       </div>
       <div
         className={styles.promoNumber_Keyboard__backspace}
-        onClick={() => remove()}
+        onClick={() => {
+          remove()
+          setIsButtonClicked(false)
+        }}
       >
         СТЕРЕТЬ
       </div>

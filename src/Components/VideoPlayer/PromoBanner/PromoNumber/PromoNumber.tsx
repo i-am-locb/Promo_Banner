@@ -10,8 +10,9 @@ type Props = {
 };
 
 export const PromoNumber: React.FC<Props> = ({ isOpen }) => {
-  let [isAccepted, setIsAccepted] = useState(false);
-  let [isFullNumber, setIsFullNumber] = useState(false);
+  const [isAccepted, setIsAccepted] = useState(false);
+  const [isFullNumber, setIsFullNumber] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(false)
 
   return (
     <div
@@ -25,9 +26,9 @@ export const PromoNumber: React.FC<Props> = ({ isOpen }) => {
       <h3 className={styles.promoNumber_SubTitle}>
         и с Вами свяжется наш менеждер для дальнейшей консультации
       </h3>
-      <PromoNumberKeyboard setIsFullNumber={setIsFullNumber} />
-      <PromoNumberCheckbox setIsAccepted={setIsAccepted} />
-      <PromoNumberAcceptButton isAccepted={isAccepted} isFullNumber={isFullNumber} />
+      <PromoNumberKeyboard setIsFullNumber={setIsFullNumber} setIsButtonClicked={setIsButtonClicked}/>
+      <PromoNumberCheckbox setIsAccepted={setIsAccepted} isButtonClicked={isButtonClicked} />
+      <PromoNumberAcceptButton isAccepted={isAccepted} isFullNumber={isFullNumber} setIsButtonClicked={setIsButtonClicked} />
     </div>
   );
 };

@@ -1,17 +1,24 @@
+import { useDispatch, useSelector } from "react-redux";
+import { validate } from "../../../../../Redux/Reducers/PhoneNumber/PhoneNumber_reducer";
+import { IRootState } from "../../../../../Redux/Store";
 import styles from "./PromoNumberAcceptButton.module.css";
 
 type Props = {
   isAccepted: boolean;
   isFullNumber: boolean;
+  setIsButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const PromoNumberAcceptButton: React.FC<Props> = ({
   isAccepted,
   isFullNumber,
+  setIsButtonClicked,
 }) => {
+  let number = useSelector((state: IRootState) => state.Number.number);
+  const dispatch = useDispatch();
+
   const accept = () => {
-    console.log("click");
-    console.log(isAccepted);
+    dispatch(validate(number.join("")));
   };
 
   return (
@@ -22,7 +29,10 @@ export const PromoNumberAcceptButton: React.FC<Props> = ({
           : styles.promoNumber_AcceptButtonDisabled
       }
       disabled={!isAccepted && !isFullNumber}
-      onClick={() => accept()}
+      onClick={() =>{
+        accept()
+        setIsButtonClicked(true)
+      } }
     >
       ПОТВЕРДИТЬ НОМЕР
     </button>
