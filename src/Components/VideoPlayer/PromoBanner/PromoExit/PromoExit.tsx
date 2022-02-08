@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./PromoExit.module.css";
+// @ts-ignore
+import {Focusable} from "react-js-spatial-navigation-swapnil";
 
 type Props = {
   isOpen: boolean;
@@ -14,7 +16,6 @@ export const PromoExit: React.FC<Props> = ({
 }) => {
   useEffect(() => {
     const onKeyDown = (e: any) => {
-      console.log(e.keyCode);
       switch (e.keyCode) {
         case 27: {
           toggleIsOpen(false);
@@ -31,6 +32,7 @@ export const PromoExit: React.FC<Props> = ({
   }, [isOpen]);
 
   return (
+    <Focusable >
     <button
       onClick={() => {
         toggleIsOpen(false);
@@ -39,5 +41,6 @@ export const PromoExit: React.FC<Props> = ({
       className={styles.promoExitButton}
       style={isOpen ? { right: 20 } : { right: -140 }}
     ></button>
+    </Focusable>
   );
 };

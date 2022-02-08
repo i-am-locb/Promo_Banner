@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../../Redux/Store";
 import styles from "./PromoNotification.module.css";
+// @ts-ignore
+import { Focusable } from "react-js-spatial-navigation-swapnil";
 
 type Props = {
   isOpen: boolean;
   showAlert: boolean;
-  toggleIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  toggleIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -20,11 +22,10 @@ export const PromoNotification: React.FC<Props> = ({
 
   useEffect(() => {
     const onKeyDown = (e: any) => {
-      console.log(e.keyCode);
       switch (e.keyCode) {
         case 13: {
-          toggleIsOpen(true)
-          setShowAlert(false)
+          toggleIsOpen(true);
+          setShowAlert(false);
           break;
         }
       }
@@ -49,15 +50,18 @@ export const PromoNotification: React.FC<Props> = ({
       <h3 className={styles.popupAlert_subTitle}>
         Сканируйте QR-код или нажмите ОК
       </h3>
-      <button
-        onClick={() => {
-          toggleIsOpen(true)
-          setShowAlert(false)
-        }}
-        className={styles.popupAlert_accept}
-      >
-        OK
-      </button>
+      <Focusable defaultElement
+          className={styles.popupAlert_acceptWrapper}>
+        <button
+          onClick={() => {
+            toggleIsOpen(true);
+            setShowAlert(false);
+          }}
+          className={styles.popupAlert_accept}
+        >
+          OK
+        </button>
+      </Focusable>
     </div>
   );
 };
